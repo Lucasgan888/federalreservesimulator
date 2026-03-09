@@ -201,6 +201,22 @@ function GameOver({ history, events, decisions }: { history: EconomicState[]; ev
           </div>
         </div>
       )}
+
+      {/* Learn More Section */}
+      <div className="bg-blue-950/30 rounded-xl p-6 border border-blue-900/50">
+        <h3 className="font-bold text-blue-400 mb-4">📚 Want to Learn More?</h3>
+        <div className="grid sm:grid-cols-3 gap-3">
+          <a href="/concepts/federal-funds-rate" className="block p-3 bg-gray-900 hover:bg-gray-800 rounded-lg border border-gray-800 hover:border-blue-500 transition">
+            <span className="text-sm text-gray-200">Federal Funds Rate Explained</span>
+          </a>
+          <a href="/guides/how-the-fed-fights-inflation" className="block p-3 bg-gray-900 hover:bg-gray-800 rounded-lg border border-gray-800 hover:border-blue-500 transition">
+            <span className="text-sm text-gray-200">How the Fed Fights Inflation</span>
+          </a>
+          <a href="/calculators/rate-impact-calculator" className="block p-3 bg-gray-900 hover:bg-gray-800 rounded-lg border border-gray-800 hover:border-blue-500 transition">
+            <span className="text-sm text-gray-200">Rate Impact Calculator</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
@@ -280,6 +296,70 @@ export default function FederalReserveSimulator() {
           {/* Ad placeholder */}
           <div className="p-4 border border-dashed border-gray-700 rounded text-gray-600 text-xs text-center">
             Advertisement Space
+          </div>
+
+          {/* Featured Concepts */}
+          <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+            <h2 className="text-xl font-bold mb-4">📚 Featured Concepts</h2>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <a href="/concepts/federal-funds-rate" className="block p-4 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700 hover:border-blue-500 transition">
+                <h3 className="font-semibold text-blue-400 mb-2">Federal Funds Rate</h3>
+                <p className="text-xs text-gray-500">The Fed's primary tool for managing the economy</p>
+              </a>
+              <a href="/concepts/quantitative-easing" className="block p-4 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700 hover:border-blue-500 transition">
+                <h3 className="font-semibold text-blue-400 mb-2">Quantitative Easing</h3>
+                <p className="text-xs text-gray-500">How the Fed injects money when rates hit zero</p>
+              </a>
+              <a href="/concepts/soft-landing" className="block p-4 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700 hover:border-blue-500 transition">
+                <h3 className="font-semibold text-blue-400 mb-2">Soft Landing</h3>
+                <p className="text-xs text-gray-500">The Fed's goal: cool inflation without recession</p>
+              </a>
+            </div>
+          </div>
+
+          {/* How Rate Changes Affect You */}
+          <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+            <h2 className="text-xl font-bold mb-4">💰 How Rate Changes Affect You</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">📈</span>
+                  <div>
+                    <h3 className="font-semibold text-gray-200 mb-1">When Rates Rise</h3>
+                    <p className="text-sm text-gray-400">Mortgages, loans, and credit cards become more expensive. Savings accounts earn more interest.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">📉</span>
+                  <div>
+                    <h3 className="font-semibold text-gray-200 mb-1">When Rates Fall</h3>
+                    <p className="text-sm text-gray-400">Borrowing becomes cheaper, encouraging spending. Savings earn less, but stocks may rise.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <a href="/calculators/rate-impact-calculator" className="block w-full p-4 bg-blue-950/30 hover:bg-blue-950/50 rounded-lg border border-blue-900/50 hover:border-blue-500 transition text-center">
+                  <span className="text-3xl block mb-2">🧮</span>
+                  <span className="font-semibold text-blue-400">Calculate Your Impact</span>
+                  <p className="text-xs text-gray-500 mt-1">See how rate changes affect your finances</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Learn the Mechanics */}
+          <div className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+            <h2 className="text-xl font-bold mb-4">🎓 Learn the Mechanics</h2>
+            <div className="grid sm:grid-cols-2 gap-3">
+              <a href="/guides/how-the-fed-fights-inflation" className="block p-4 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700 hover:border-blue-500 transition">
+                <h3 className="font-semibold text-gray-200 mb-1">How the Fed Fights Inflation</h3>
+                <p className="text-xs text-gray-500">Step-by-step guide to monetary policy tightening</p>
+              </a>
+              <a href="/guides/what-happens-when-interest-rates-go-up" className="block p-4 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700 hover:border-blue-500 transition">
+                <h3 className="font-semibold text-gray-200 mb-1">What Happens When Rates Go Up</h3>
+                <p className="text-xs text-gray-500">The ripple effects across the economy</p>
+              </a>
+            </div>
           </div>
         </div>
       )}
