@@ -20,8 +20,19 @@ export default function ConceptPage({ params }: { params: { slug: string } }) {
   const concept = concepts[params.slug];
   if (!concept) notFound();
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: concept.title,
+    description: concept.description,
+    dateModified: concept.updatedAt,
+    author: { "@type": "Organization", name: "Federal Reserve Simulator" },
+  };
+
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-8">
         <a href="/" className="text-sm text-blue-500 hover:text-blue-400 mb-4 inline-block">← Back to Simulator</a>
         <h1 className="text-4xl font-bold mb-4">{concept.title}</h1>
@@ -72,5 +83,6 @@ export default function ConceptPage({ params }: { params: { slug: string } }) {
 
       <p className="text-xs text-gray-600 mt-8">Last updated: {concept.updatedAt}</p>
     </div>
+    </>
   );
 }

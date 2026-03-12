@@ -47,31 +47,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="bg-gray-950 text-gray-100 min-h-screen antialiased">
-        <nav className="border-b border-gray-800 bg-gray-950/80 backdrop-blur-sm sticky top-0 z-50">
-          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="/" className="flex items-center gap-2">
-              <span className="text-2xl">🏛️</span>
-              <span className="font-bold text-lg text-blue-500">Federal Reserve Simulator</span>
+      <body className="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 text-slate-900 dark:text-slate-100 min-h-screen antialiased">
+        <nav className="border-b border-slate-200/80 dark:border-slate-800/80 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-50 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="/" className="flex items-center gap-3 group">
+              <span className="text-3xl group-hover:scale-110 transition-transform duration-200">🏛️</span>
+              <span className="font-bold text-xl bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">Federal Reserve Simulator</span>
             </a>
-            <div className="flex gap-4 text-sm text-gray-400">
-              <a href="/" className="hover:text-blue-500 transition">Home</a>
-              <a href="/about" className="hover:text-blue-500 transition">About</a>
+            <div className="flex gap-6 text-sm font-medium">
+              <a href="/" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Home</a>
+              <a href="/about" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">About</a>
             </div>
           </div>
         </nav>
         <main>{children}</main>
-        <footer className="border-t border-gray-800 mt-16 py-8 text-center text-sm text-gray-500">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="mb-6 p-4 border border-dashed border-gray-700 rounded text-gray-600 text-xs">
-              Advertisement Space
+        <footer className="border-t border-slate-200 dark:border-slate-800 mt-16 py-8 text-center text-sm text-slate-600 dark:text-slate-400 bg-white/50 dark:bg-slate-950/50">
+          <div className="max-w-7xl mx-auto px-4">
+            <p className="font-medium">© {new Date().getFullYear()} Federal Reserve Simulator. All rights reserved.</p>
+            <div className="flex justify-center gap-6 mt-3">
+              <a href="/privacy" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Privacy</a>
+              <a href="/terms" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">Terms</a>
             </div>
-            <p>© {new Date().getFullYear()} Federal Reserve Simulator. All rights reserved.</p>
-            <div className="flex justify-center gap-4 mt-2">
-              <a href="/privacy" className="hover:text-blue-500 transition">Privacy</a>
-              <a href="/terms" className="hover:text-blue-500 transition">Terms</a>
-            </div>
-            <p className="mt-2 text-gray-600 text-xs">
+            <p className="mt-3 text-slate-500 dark:text-slate-600 text-xs">
               For educational purposes only. Not affiliated with the Federal Reserve System.
             </p>
           </div>

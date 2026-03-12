@@ -20,8 +20,19 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
   const guide = guides[params.slug];
   if (!guide) notFound();
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    dateModified: guide.updatedAt,
+    author: { "@type": "Organization", name: "Federal Reserve Simulator" },
+  };
+
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-8">
         <a href="/" className="text-sm text-blue-500 hover:text-blue-400 mb-4 inline-block">← Back to Simulator</a>
         <h1 className="text-4xl font-bold mb-4">{guide.title}</h1>
@@ -72,5 +83,6 @@ export default function GuidePage({ params }: { params: { slug: string } }) {
 
       <p className="text-xs text-gray-600 mt-8">Last updated: {guide.updatedAt}</p>
     </div>
+    </>
   );
 }
