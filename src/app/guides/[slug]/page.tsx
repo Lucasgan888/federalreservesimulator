@@ -6,8 +6,9 @@ export async function generateStaticParams() {
   return Object.keys(guides).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const guide = guides[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = guides[slug];
   if (!guide) return {};
   return {
     title: `${guide.title} | Federal Reserve Simulator`,
@@ -16,8 +17,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function GuidePage({ params }: { params: { slug: string } }) {
-  const guide = guides[params.slug];
+export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const guide = guides[slug];
   if (!guide) notFound();
 
   const schema = {

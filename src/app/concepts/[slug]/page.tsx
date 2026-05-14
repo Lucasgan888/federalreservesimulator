@@ -6,8 +6,9 @@ export async function generateStaticParams() {
   return Object.keys(concepts).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const concept = concepts[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const concept = concepts[slug];
   if (!concept) return {};
   return {
     title: `${concept.title} | Federal Reserve Simulator`,
@@ -16,8 +17,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ConceptPage({ params }: { params: { slug: string } }) {
-  const concept = concepts[params.slug];
+export default async function ConceptPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const concept = concepts[slug];
   if (!concept) notFound();
 
   const schema = {
