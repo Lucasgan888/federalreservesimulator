@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { calculators } from "@/lib/content";
 import CalculatorClient from "./CalculatorClient";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const calc = calculators[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const calc = calculators[slug];
   if (!calc) return { title: "Calculator Not Found" };
   return {
     title: `${calc.title} | Federal Reserve Simulator`,
@@ -16,8 +17,9 @@ export async function generateStaticParams() {
   return Object.keys(calculators).map(slug => ({ slug }));
 }
 
-export default function CalculatorPage({ params }: { params: { slug: string } }) {
-  const calc = calculators[params.slug];
+export default async function CalculatorPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const calc = calculators[slug];
   if (!calc) notFound();
 
   const schema = {
